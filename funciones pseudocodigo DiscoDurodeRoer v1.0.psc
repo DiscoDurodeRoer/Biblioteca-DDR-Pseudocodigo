@@ -118,6 +118,33 @@ SubProceso posicion <- fibonacciPosicion(numFibonacci)
 	
 FinSubProceso
 
+SubProceso numValidar <- validarEntero(numMin, numMax)
+	
+	definir aux,numValidar como entero;
+	definir finValidacion Como Logico;
+	finValidacion <- falso;
+	
+	Si numMin>numMax Entonces
+		aux <- numMin;
+		numMin <- numMax;
+		numMax <- aux;
+	FinSi
+	
+	Repetir
+		
+		Escribir "Escribe un numero entre " , numMin , " y "  , numMax;
+		leer numValidar;
+		
+		Si numValidar>=numMin y numValidar<=numMax Entonces
+			finValidacion <- verdadero;
+		SiNo
+			Escribir "Error, debes escribir un numero entre " , numMin , " y "  , numMax;
+		FinSi
+		
+	Hasta Que finValidacion
+	
+FinSubProceso
+
 //----------
 //-Arreglos-
 //----------
@@ -126,6 +153,8 @@ FinSubProceso
 //Arreglo2 = arreglo donde se copiaran los datos del arreglo original
 //longitudArreglos = La longitud de ambos arreglos, deben ser iguales
 SubProceso copiaArreglos (arreglo1, arreglo2, longitudArreglos)
+	
+	definir i como numero;
 	
 	Para i<-0 Hasta longitudArreglos-1 Con Paso 1 Hacer
 		
@@ -159,6 +188,7 @@ SubProceso rellenarArrayAleatorios(arreglo, longitudArreglo, minimo, maximo)
 	
 FinSubProceso
 
+// Devuelve el maximo de un arreglo
 subproceso valorMax <- maximoValorArreglo(arreglo, longitudArreglo)
 	
 	Definir valorMax,i como numero;
@@ -175,6 +205,7 @@ subproceso valorMax <- maximoValorArreglo(arreglo, longitudArreglo)
 	
 FinSubProceso
 
+// Devuelve el minimo de un arreglo
 subproceso valorMin <- minimoValorArreglo(arreglo, longitudArreglo)
 	Definir valorMin,i como numero;
 	valorMin <- arreglo[0];
@@ -202,6 +233,9 @@ Proceso Funciones_DiscoDurodeRoer
 	
 	escribir "El valor maximo es ",maximoValorArreglo(arreglo, 10);
 	escribir "El valor minimo es ",minimoValorArreglo(arreglo, 10);
+	
+	Escribir "Numero validar 0 3 ",validarEntero(0,3);
+	
 	
 finproceso
 
