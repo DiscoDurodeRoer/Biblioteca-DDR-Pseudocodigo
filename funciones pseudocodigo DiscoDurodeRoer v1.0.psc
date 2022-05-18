@@ -220,6 +220,20 @@ subproceso valorMin <- minimoValorArreglo(arreglo, longitudArreglo)
 	
 FinSubProceso
 
+//Rellena una matriz de numeros aleatorios entre un mínimo y un máximo, números mínimo y máximo incluidos.
+SubProceso rellenarMatrizAleatorios(matriz, numFilas, numColumnas, minimo, maximo)
+	
+	definir i,j como numero;
+	
+	Para i<-0 Hasta numFilas -1 Con Paso 1 Hacer
+		Para j<-0 Hasta numColumnas -1 Con Paso 1 Hacer
+			// Genera un numero aleatorio
+			matriz(i,j) <- numeroAleatorioEntre(minimo, maximo);
+		FinPara
+	FinPara
+	
+FinSubProceso
+
 Proceso Funciones_DiscoDurodeRoer
 	
 	// Zona para testear funciones
