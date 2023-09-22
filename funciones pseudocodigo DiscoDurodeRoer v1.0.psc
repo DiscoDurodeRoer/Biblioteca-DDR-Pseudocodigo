@@ -145,6 +145,19 @@ SubProceso numValidar <- validarEntero(numMin, numMax)
 	
 FinSubProceso
 
+SubProceso cifras <- CuentaCifras ( num ) 
+	definir cifras Como Entero; cifras <- 0; 
+	Si num = 0 Entonces 
+		cifras <- 1; 
+	SiNo 
+		num <- ABS(num); 
+		Mientras num > 0 Hacer 
+			cifras <- cifras + 1; 
+			num <- trunc(num / 10); 
+		Fin Mientras 
+	Fin Si 
+Fin SubProceso
+
 //----------
 //-Arreglos-
 //----------
